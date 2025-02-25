@@ -2,7 +2,12 @@ import type { Metadata } from "next";
 import localFont from "next/font/local";
 import { Toaster } from "@/components/ui/sonner";
 import TopProgressBar from "@/components/ui/topProgressBar";
+import axios from "axios";
+import { setupInterceptorsTo } from "@/lib/axiosInstance";
 import "./globals.css";
+import ReactQueryProvider from "@/lib/reactQueryProvider";
+
+setupInterceptorsTo(axios);
 
 const IRANSansX = localFont({
   src: [
@@ -34,7 +39,9 @@ export default function RootLayout({
     <html lang="fa-IR" dir="rtl">
       <body>
         <TopProgressBar />
-        <main className={IRANSansX.className}>{children}</main>
+        <ReactQueryProvider>
+          <main className={IRANSansX.className}>{children}</main>
+        </ReactQueryProvider>
         <Toaster className="!font-IRANSansX" position="top-left" richColors />
       </body>
     </html>
