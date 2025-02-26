@@ -1,0 +1,40 @@
+/* Default (light) theme */
+:root {
+    --background-color: #ffffff;
+    --text-color: #000000;
+    --link-color: #1a73e8;
+    --button-bg-color: #4CAF50;
+    --button-text-color: white;
+  }
+  
+  /* Dark theme */
+  [data-theme="dark"] {
+    --background-color: #121212;
+    --text-color: #e0e0e0;
+    --link-color: #82caff;
+    --button-bg-color: #d32f2f;
+    --button-text-color: white;
+  }
+  
+  /* System-based theme */
+  [data-theme="system"] {
+    /* These can be adjusted based on your system preferences */
+    --background-color: var(--system-background-color);
+    --text-color: var(--system-text-color);
+  }
+  
+  /* General styles applying the theme variables */
+  body {
+    background-color: var(--background-color);
+    color: var(--text-color);
+  }
+  
+  a {
+    color: var(--link-color);
+  }
+  
+  button {
+    background-color: var(--button-bg-color);
+    color: var(--button-text-color);
+  }
+  

@@ -3,9 +3,10 @@ import localFont from "next/font/local";
 import { Toaster } from "@/components/ui/sonner";
 import TopProgressBar from "@/components/ui/topProgressBar";
 import axios from "axios";
-import { setupInterceptorsTo } from "@/lib/axiosInstance";
-import "./globals.css";
-import ReactQueryProvider from "@/lib/reactQueryProvider";
+import { setupInterceptorsTo } from "@/lib/axios";
+import "@/styles/globals.css";
+import ReactQueryProvider from "@/providers/QueryProvider";
+import ThemeProvider from "@/providers/ThemeProvider";
 
 setupInterceptorsTo(axios);
 
@@ -38,11 +39,13 @@ export default function RootLayout({
   return (
     <html lang="fa-IR" dir="rtl">
       <body>
-        <TopProgressBar />
+      <ThemeProvider>
+      <TopProgressBar />
         <ReactQueryProvider>
           <main className={IRANSansX.className}>{children}</main>
         </ReactQueryProvider>
         <Toaster className="!font-IRANSansX" position="top-left" richColors />
+      </ThemeProvider>
       </body>
     </html>
   );
