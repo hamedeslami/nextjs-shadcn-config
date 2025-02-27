@@ -70,7 +70,7 @@ export default function SignupForm() {
                         {...field}
                         className={`pr-10 ${
                           form.formState.errors.firstname &&
-                          "border-red-500 border-red-500 ring-0 focus-visible:ring-0"
+                          "border-red-500 ring-0 focus-visible:ring-0"
                         }`}
                       />
                     </div>
@@ -98,7 +98,7 @@ export default function SignupForm() {
                         {...field}
                         className={`pr-10 ${
                           form.formState.errors.lastname &&
-                          "border-red-500 border-red-500 ring-0 focus-visible:ring-0"
+                          "border-red-500 ring-0 focus-visible:ring-0"
                         }`}
                       />
                     </div>
@@ -128,7 +128,7 @@ export default function SignupForm() {
                         {...field}
                         className={`pr-10 ${
                           form.formState.errors.email &&
-                          "border-red-500 border-red-500 ring-0 focus-visible:ring-0"
+                          "border-red-500 ring-0 focus-visible:ring-0"
                         }`}
                       />
                     </div>
@@ -159,7 +159,7 @@ export default function SignupForm() {
                         {...field}
                         className={`pr-10 ${
                           form.formState.errors.mobile &&
-                          "border-red-500 border-red-500 ring-0 focus-visible:ring-0"
+                          "border-red-500 ring-0 focus-visible:ring-0"
                         }`}
                       />
                     </div>
@@ -190,7 +190,7 @@ export default function SignupForm() {
                         {...field}
                         className={`pr-10 pl-10 peer ${
                           form.formState.errors.password &&
-                          "border-red-500 border-red-500 ring-0 focus-visible:ring-0"
+                          "border-red-500 ring-0 focus-visible:ring-0"
                         }`}
                       />
 
@@ -231,7 +231,7 @@ export default function SignupForm() {
                         {...field}
                         className={`pr-10 pl-10 peer ${
                           form.formState.errors.rePassword &&
-                          "border-red-500 border-red-500 ring-0 focus-visible:ring-0"
+                          "border-red-500 ring-0 focus-visible:ring-0"
                         }`}
                       />
 

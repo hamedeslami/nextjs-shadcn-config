@@ -63,7 +63,7 @@ export default function LoginForm() {
                       {...field}
                       className={`pr-10 ${
                         form.formState.errors.username &&
-                        "border-red-500 border-red-500 ring-0 focus-visible:ring-0"
+                        "border-red-500 ring-0 focus-visible:ring-0"
                       }`}
                     />
                   </div>
@@ -91,7 +91,7 @@ export default function LoginForm() {
                       {...field}
                       className={`pr-10 pl-10 peer ${
                         form.formState.errors.password &&
-                        "border-red-500 border-red-500 ring-0 focus-visible:ring-0"
+                        "border-red-500 ring-0 focus-visible:ring-0"
                       }`}
                     />
 

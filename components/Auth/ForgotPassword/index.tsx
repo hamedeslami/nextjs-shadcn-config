@@ -61,7 +61,7 @@ export default function ForgotPasswordForm() {
                         {...field}
                         className={`pr-10 ${
                           form.formState.errors.mobile &&
-                          "border-red-500 border-red-500 ring-0 focus-visible:ring-0"
+                          "border-red-500 ring-0 focus-visible:ring-0"
                         }`}
                       />
                     </div>
@@ -72,9 +72,9 @@ export default function ForgotPasswordForm() {
             />
 
             <div className="mt-3">
-              <button className="w-full bg-slate-800 text-white p-3 rounded-[0.5rem] hover:bg-slate-700 transition-all duration-200">
+              <Button className="w-full bg-slate-800 text-white p-3 rounded-[0.5rem] hover:bg-slate-700 transition-all duration-200">
                 {ForgotPasswordMessage['submit']}
-              </button>
+              </Button>
             </div>
             <div className="flex justify-center mt-3">
               <Link href="/auth/login" className="text-slate-600 text-xs mt-3">
