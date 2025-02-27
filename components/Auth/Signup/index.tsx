@@ -14,7 +14,7 @@ import {
 } from "@/components/ui/form";
 import { Input } from "@/components/ui/input";
 import { Eye, Lock, User, EyeOff, AtSign, Phone } from "lucide-react";
-import { SignupFormSchema } from "./FormSchema";
+import { SignupFormSchema } from "./SignupFormSchema";
 import SignupMessage from "./message";
 import Link from "next/link";
 

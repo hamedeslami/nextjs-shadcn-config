@@ -4,7 +4,6 @@ import { useState } from "react";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { useForm } from "react-hook-form";
 import { z } from "zod";
-import ThemeSwitcher from "@/components/ui/themeSwitcher";
 import {
   Form,
   FormControl,
@@ -15,7 +14,7 @@ import {
 import { Input } from "@/components/ui/input";
 import Link from "next/link";
 import { Eye, Lock, User, EyeOff } from "lucide-react";
-import { LoginFormSchema } from "./FormSchema";
+import { LoginFormSchema } from "./loginFormSchema";
 import LoginMessage from "./message";
 import { Button } from "@/components/ui/button";
 

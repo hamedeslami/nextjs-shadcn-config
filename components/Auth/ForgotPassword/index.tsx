@@ -14,7 +14,7 @@ import {
 import { Input } from "@/components/ui/input";
 import Link from "next/link";
 import { Phone } from "lucide-react";
-import { ForgotPasswordFormSchema } from "./FormSchema";
+import { ForgotPasswordFormSchema } from "./forgotPasswordFormSchema";
 import ForgotPasswordMessage from "./message";
 import { toast } from "sonner"
 
