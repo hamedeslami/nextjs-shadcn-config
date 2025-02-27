@@ -4,7 +4,7 @@ import { useState } from "react";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { useForm } from "react-hook-form";
 import { z } from "zod";
-import { Button } from "@/components/ui/button";
+import ThemeSwitcher from "@/components/ui/themeSwitcher";
 import {
   Form,
   FormControl,
@@ -17,6 +17,7 @@ import Link from "next/link";
 import { Eye, Lock, User, EyeOff } from "lucide-react";
 import { LoginFormSchema } from "./FormSchema";
 import LoginMessage from "./message";
+import { Button } from "@/components/ui/button";
 
 export default function LoginForm() {
   const [showPassword, setShowPassword] = useState(false);

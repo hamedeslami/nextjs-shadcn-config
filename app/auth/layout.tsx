@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import ThemeSwitcher from "@/components/ui/themeSwitcher";
 import Image from "next/image";
 
 export const metadata: Metadata = {
@@ -16,7 +17,8 @@ export default function AuthLayout({
       <div className="flex flex-col justify-center items-center md:col-span-2 lg:col-span-2">
         {children}
       </div>
-      <div className="hidden md:flex flex-col justify-center items-center bg-slate-200">
+      <div className="hidden md:flex flex-col justify-center items-center bg-slate-200 dark:bg-slate-900">
+      <ThemeSwitcher/>
         <Image
           src="/images/backgrounds/lock.webp"
           priority={false}

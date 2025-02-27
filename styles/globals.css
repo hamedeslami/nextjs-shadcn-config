@@ -6,9 +6,6 @@
 
 @layer base {
   :root {
-
-    --font-IRANSansX: "IRANSansX", sans-serif;
-
     --background: 0 0% 100%;
 
     --foreground: 0 0% 3.9%;
@@ -60,9 +57,6 @@
     --radius: 0.5rem
   }
   .dark {
-
-    --font-IRANSansX: "IRANSansX", sans-serif;
-
     --background: 0 0% 3.9%;
 
     --foreground: 0 0% 98%;
@@ -120,6 +114,7 @@
     @apply border-border outline-ring/50;
   }
   body {
+    --font-IRANSansX: "IRANSansX", sans-serif;
     @apply bg-background text-foreground;
   }
   .sonner {
