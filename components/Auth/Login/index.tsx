@@ -1,6 +1,5 @@
 "use client";
 
-import { useState } from "react";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { useForm } from "react-hook-form";
 import { z } from "zod";
@@ -11,15 +10,15 @@ import {
   FormItem,
   FormMessage
 } from "@/components/ui/form";
-import { Input } from "@/components/ui/input";
+import InputIcons from "@/components/ui/wrappers/inputIcons";
 import Link from "next/link";
-import { Eye, Lock, User, EyeOff } from "lucide-react";
+import { Lock, User } from "lucide-react";
 import { LoginFormSchema } from "./loginFormSchema";
 import LoginMessage from "./message";
 import { Button } from "@/components/ui/button";
 
+
 export default function LoginForm() {
-  const [showPassword, setShowPassword] = useState(false);
 
   const form = useForm<z.infer<typeof LoginFormSchema>>({
     resolver: zodResolver(LoginFormSchema),
@@ -52,21 +51,13 @@ export default function LoginForm() {
             render={({ field }) => (
               <FormItem>
                 <FormControl>
-                  <div className="relative group">
-                    <User
-                      className="absolute right-3 top-1/2 -translate-y-1/2 text-gray-400 group-focus-within:text-black transition-colors duration-300"
-                      size={18}
-                    />
-
-                    <Input
-                      placeholder={LoginMessage["username"]}
-                      {...field}
-                      className={`pr-10 ${
-                        form.formState.errors.username &&
-                        "border-red-500 ring-0 focus-visible:ring-0"
-                      }`}
-                    />
-                  </div>
+                  <InputIcons
+                    type="text"
+                    placeholder={LoginMessage["username"]}
+                    field={field}
+                    error={form.formState.errors.username}
+                    icon={User}
+                  />
                 </FormControl>
                 <FormMessage />
               </FormItem>
@@ -79,30 +70,13 @@ export default function LoginForm() {
             render={({ field }) => (
               <FormItem>
                 <FormControl>
-                  <div className="relative group">
-                    <Lock
-                      className="absolute right-3 top-1/2 -translate-y-1/2 text-gray-400 group-focus-within:text-black transition-colors duration-300"
-                      size={18}
-                    />
-
-                    <Input
-                      placeholder={LoginMessage["password"]}
-                      type={showPassword ? "text" : "password"}
-                      {...field}
-                      className={`pr-10 pl-10 peer ${
-                        form.formState.errors.password &&
-                        "border-red-500 ring-0 focus-visible:ring-0"
-                      }`}
-                    />
-
-                    <button
-                      type="button"
-                      className="absolute left-3 top-1/2 -translate-y-1/2 text-gray-400 group-focus-within:text-black transition-colors duration-300"
-                      onClick={() => setShowPassword(!showPassword)}
-                    >
-                      {showPassword ? <EyeOff size={18} /> : <Eye size={18} />}
-                    </button>
-                  </div>
+                  <InputIcons
+                    type="password"
+                    placeholder={LoginMessage["password"]}
+                    field={field}
+                    error={form.formState.errors.password}
+                    icon={Lock}
+                  />
                 </FormControl>
                 <FormMessage />
               </FormItem>
@@ -117,12 +91,7 @@ export default function LoginForm() {
               {LoginMessage["forgotPassword"]}
             </Link>
 
-            <Button
-              className="w-full bg-slate-800 text-white p-3 rounded-[0.5rem] hover:bg-slate-700 transition-all duration-200"
-              type="submit"
-            >
-              {LoginMessage["submit"]}
-            </Button>
+            <Button type="submit">{LoginMessage["submit"]}</Button>
           </div>
         </form>
       </Form>

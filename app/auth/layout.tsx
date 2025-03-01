@@ -14,7 +14,7 @@ export default function AuthLayout({
 }) {
   return (
     <div className="h-screen grid grid-cols-1 md:grid-cols-3 lg:grid-cols-3">
-      <div className="flex flex-col justify-center items-center md:col-span-2 lg:col-span-2">
+      <div className="bg-white dark:bg-gray-800 flex flex-col justify-center items-center md:col-span-2 lg:col-span-2">
         {children}
       </div>
       <div className="hidden md:flex flex-col justify-center items-center bg-slate-200 dark:bg-slate-900">

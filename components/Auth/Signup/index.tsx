@@ -1,6 +1,5 @@
 "use client";
 
-import { useState } from "react";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { useForm } from "react-hook-form";
 import { z } from "zod";
@@ -12,15 +11,13 @@ import {
   FormItem,
   FormMessage
 } from "@/components/ui/form";
-import { Input } from "@/components/ui/input";
-import { Eye, Lock, User, EyeOff, AtSign, Phone } from "lucide-react";
+import InputIcons from "@/components/ui/wrappers/inputIcons";
+import { Lock, User, AtSign, Phone } from "lucide-react";
 import { SignupFormSchema } from "./SignupFormSchema";
 import SignupMessage from "./message";
 import Link from "next/link";
 
 export default function SignupForm() {
-  const [showPassword, setShowPassword] = useState(false);
-  const [showRePassword, setShowRePassword] = useState(false);
 
   const form = useForm<z.infer<typeof SignupFormSchema>>({
     resolver: zodResolver(SignupFormSchema),
@@ -58,22 +55,15 @@ export default function SignupForm() {
               render={({ field }) => (
                 <FormItem>
                   <FormControl>
-                    <div className="relative group">
-                      <User
-                        className="absolute right-3 top-1/2 -translate-y-1/2 text-gray-400 group-focus-within:text-black transition-colors duration-300"
-                        size={18}
-                      />
 
-                      <Input
-                        placeholder={SignupMessage["firstname"]}
-                        autoComplete="off"
-                        {...field}
-                        className={`pr-10 ${
-                          form.formState.errors.firstname &&
-                          "border-red-500 ring-0 focus-visible:ring-0"
-                        }`}
-                      />
-                    </div>
+                    <InputIcons
+                      type="text"
+                      placeholder={SignupMessage["firstname"]}
+                      field={field}
+                      error={form.formState.errors.firstname}
+                      icon={User}
+                    />
+
                   </FormControl>
                   <FormMessage />
                 </FormItem>
@@ -86,22 +76,15 @@ export default function SignupForm() {
               render={({ field }) => (
                 <FormItem>
                   <FormControl>
-                    <div className="relative group">
-                      <User
-                        className="absolute right-3 top-1/2 -translate-y-1/2 text-gray-400 group-focus-within:text-black transition-colors duration-300"
-                        size={18}
-                      />
 
-                      <Input
-                        placeholder={SignupMessage["lastname"]}
-                        autoComplete="off"
-                        {...field}
-                        className={`pr-10 ${
-                          form.formState.errors.lastname &&
-                          "border-red-500 ring-0 focus-visible:ring-0"
-                        }`}
-                      />
-                    </div>
+                    <InputIcons
+                      type="text"
+                      placeholder={SignupMessage["lastname"]}
+                      field={field}
+                      error={form.formState.errors.lastname}
+                      icon={User}
+                    />
+
                   </FormControl>
                   <FormMessage />
                 </FormItem>
@@ -115,23 +98,15 @@ export default function SignupForm() {
               render={({ field }) => (
                 <FormItem>
                   <FormControl>
-                    <div className="relative group">
-                      <AtSign
-                        className="absolute right-3 top-1/2 -translate-y-1/2 text-gray-400 group-focus-within:text-black transition-colors duration-300"
-                        size={18}
-                      />
 
-                      <Input
-                        type="email"
-                        autoComplete="off"
-                        placeholder={SignupMessage["email"]}
-                        {...field}
-                        className={`pr-10 ${
-                          form.formState.errors.email &&
-                          "border-red-500 ring-0 focus-visible:ring-0"
-                        }`}
-                      />
-                    </div>
+                    <InputIcons
+                      type="email"
+                      placeholder={SignupMessage["email"]}
+                      field={field}
+                      error={form.formState.errors.email}
+                      icon={AtSign}
+                    />
+
                   </FormControl>
                   <FormMessage />
                 </FormItem>
@@ -146,23 +121,15 @@ export default function SignupForm() {
               render={({ field }) => (
                 <FormItem>
                   <FormControl>
-                    <div className="relative group">
-                      <Phone
-                        className="absolute right-3 top-1/2 -translate-y-1/2 text-gray-400 group-focus-within:text-black transition-colors duration-300"
-                        size={18}
-                      />
 
-                      <Input
-                        type="text"
-                        autoComplete="off"
-                        placeholder={SignupMessage["mobile"]}
-                        {...field}
-                        className={`pr-10 ${
-                          form.formState.errors.mobile &&
-                          "border-red-500 ring-0 focus-visible:ring-0"
-                        }`}
-                      />
-                    </div>
+                    <InputIcons
+                      type="text"
+                      placeholder={SignupMessage["mobile"]}
+                      field={field}
+                      error={form.formState.errors.mobile}
+                      icon={Phone}
+                    />
+
                   </FormControl>
                   <FormMessage />
                 </FormItem>
@@ -177,35 +144,15 @@ export default function SignupForm() {
               render={({ field }) => (
                 <FormItem>
                   <FormControl>
-                    <div className="relative group">
-                      <Lock
-                        className="absolute right-3 top-1/2 -translate-y-1/2 text-gray-400 group-focus-within:text-black transition-colors duration-300"
-                        size={18}
-                      />
 
-                      <Input
-                        placeholder={SignupMessage["password"]}
-                        autoComplete="off"
-                        type={showPassword ? "text" : "password"}
-                        {...field}
-                        className={`pr-10 pl-10 peer ${
-                          form.formState.errors.password &&
-                          "border-red-500 ring-0 focus-visible:ring-0"
-                        }`}
-                      />
+                    <InputIcons
+                      type="password"
+                      placeholder={SignupMessage["password"]}
+                      field={field}
+                      error={form.formState.errors.password}
+                      icon={Lock}
+                    />
 
-                      <button
-                        type="button"
-                        className="absolute left-3 top-1/2 -translate-y-1/2 text-gray-400 group-focus-within:text-black transition-colors duration-300"
-                        onClick={() => setShowPassword(!showPassword)}
-                      >
-                        {showPassword ? (
-                          <EyeOff size={18} />
-                        ) : (
-                          <Eye size={18} />
-                        )}
-                      </button>
-                    </div>
                   </FormControl>
                   <FormMessage />
                 </FormItem>
@@ -218,35 +165,15 @@ export default function SignupForm() {
               render={({ field }) => (
                 <FormItem>
                   <FormControl>
-                    <div className="relative group">
-                      <Lock
-                        className="absolute right-3 top-1/2 -translate-y-1/2 text-gray-400 group-focus-within:text-black transition-colors duration-300"
-                        size={18}
-                      />
 
-                      <Input
-                        placeholder={SignupMessage["rePassword"]}
-                        autoComplete="off"
-                        type={showRePassword ? "text" : "password"}
-                        {...field}
-                        className={`pr-10 pl-10 peer ${
-                          form.formState.errors.rePassword &&
-                          "border-red-500 ring-0 focus-visible:ring-0"
-                        }`}
-                      />
+                    <InputIcons
+                      type="password"
+                      placeholder={SignupMessage["rePassword"]}
+                      field={field}
+                      error={form.formState.errors.rePassword}
+                      icon={Lock}
+                    />
 
-                      <button
-                        type="button"
-                        className="absolute left-3 top-1/2 -translate-y-1/2 text-gray-400 group-focus-within:text-black transition-colors duration-300"
-                        onClick={() => setShowRePassword(!showRePassword)}
-                      >
-                        {showPassword ? (
-                          <EyeOff size={18} />
-                        ) : (
-                          <Eye size={18} />
-                        )}
-                      </button>
-                    </div>
                   </FormControl>
                   <FormMessage />
                 </FormItem>
@@ -255,10 +182,7 @@ export default function SignupForm() {
           </div>
 
           <div className="flex flex-col gap-4">
-            <Button
-              className="w-full bg-slate-800 text-white p-3 rounded-[0.5rem] hover:bg-slate-700 transition-all duration-200"
-              type="submit"
-            >
+            <Button type="submit">
               {SignupMessage["submit"]}
             </Button>
           </div>

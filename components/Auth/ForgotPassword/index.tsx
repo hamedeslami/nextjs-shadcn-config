@@ -11,12 +11,13 @@ import {
   FormItem,
   FormMessage
 } from "@/components/ui/form";
-import { Input } from "@/components/ui/input";
+import InputIcons from "@/components/ui/wrappers/inputIcons";
 import Link from "next/link";
 import { Phone } from "lucide-react";
 import { ForgotPasswordFormSchema } from "./forgotPasswordFormSchema";
 import ForgotPasswordMessage from "./message";
 import { toast } from "sonner";
+
 
 export default function ForgotPasswordForm() {
   const form = useForm<z.infer<typeof ForgotPasswordFormSchema>>({
@@ -48,23 +49,7 @@ export default function ForgotPasswordForm() {
               render={({ field }) => (
                 <FormItem>
                   <FormControl>
-                    <div className="relative group">
-                      <Phone
-                        className="absolute right-3 top-1/2 -translate-y-1/2 text-gray-400 group-focus-within:text-black transition-colors duration-300"
-                        size={18}
-                      />
-
-                      <Input
-                        type="text"
-                        autoComplete="off"
-                        placeholder={ForgotPasswordMessage["mobile"]}
-                        {...field}
-                        className={`pr-10 ${
-                          form.formState.errors.mobile &&
-                          "border-red-500 ring-0 focus-visible:ring-0"
-                        }`}
-                      />
-                    </div>
+                    <InputIcons type="text" placeholder={ForgotPasswordMessage["mobile"]} field={field} error={form.formState.errors.mobile} icon={Phone}/>
                   </FormControl>
                   <FormMessage />
                 </FormItem>
@@ -72,7 +57,7 @@ export default function ForgotPasswordForm() {
             />
 
             <div className="mt-3">
-              <Button className="w-full bg-slate-800 text-white p-3 rounded-[0.5rem] hover:bg-slate-700 transition-all duration-200">
+              <Button type="submit">
                 {ForgotPasswordMessage["submit"]}
               </Button>
             </div>
