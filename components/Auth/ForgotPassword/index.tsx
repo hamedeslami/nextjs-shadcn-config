@@ -16,7 +16,7 @@ import Link from "next/link";
 import { Phone } from "lucide-react";
 import { ForgotPasswordFormSchema } from "./forgotPasswordFormSchema";
 import ForgotPasswordMessage from "./message";
-import { toast } from "sonner"
+import { toast } from "sonner";
 
 export default function ForgotPasswordForm() {
   const form = useForm<z.infer<typeof ForgotPasswordFormSchema>>({
@@ -73,12 +73,12 @@ export default function ForgotPasswordForm() {
 
             <div className="mt-3">
               <Button className="w-full bg-slate-800 text-white p-3 rounded-[0.5rem] hover:bg-slate-700 transition-all duration-200">
-                {ForgotPasswordMessage['submit']}
+                {ForgotPasswordMessage["submit"]}
               </Button>
             </div>
             <div className="flex justify-center mt-3">
               <Link href="/auth/login" className="text-slate-600 text-xs mt-3">
-                {ForgotPasswordMessage['backHome']}
+                {ForgotPasswordMessage["backHome"]}
               </Link>
             </div>
           </form>

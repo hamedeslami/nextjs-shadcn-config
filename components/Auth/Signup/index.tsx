@@ -255,7 +255,12 @@ export default function SignupForm() {
           </div>
 
           <div className="flex flex-col gap-4">
-            <Button type="submit">{SignupMessage["submit"]}</Button>
+            <Button
+              className="w-full bg-slate-800 text-white p-3 rounded-[0.5rem] hover:bg-slate-700 transition-all duration-200"
+              type="submit"
+            >
+              {SignupMessage["submit"]}
+            </Button>
           </div>
         </form>
       </Form>

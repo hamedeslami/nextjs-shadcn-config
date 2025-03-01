@@ -117,7 +117,12 @@ export default function LoginForm() {
               {LoginMessage["forgotPassword"]}
             </Link>
 
-            <Button type="submit">{LoginMessage["submit"]}</Button>
+            <Button
+              className="w-full bg-slate-800 text-white p-3 rounded-[0.5rem] hover:bg-slate-700 transition-all duration-200"
+              type="submit"
+            >
+              {LoginMessage["submit"]}
+            </Button>
           </div>
         </form>
       </Form>
