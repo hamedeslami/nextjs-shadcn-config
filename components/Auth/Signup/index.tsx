@@ -100,7 +100,7 @@ export default function SignupForm() {
                   <FormControl>
 
                     <InputIcons
-                      type="email"
+                      type="text"
                       placeholder={SignupMessage["email"]}
                       field={field}
                       error={form.formState.errors.email}

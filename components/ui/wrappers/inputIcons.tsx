@@ -33,7 +33,7 @@ export default function InputIcons({
         placeholder={placeholder}
         type={type === "password" && showPassword ? "text" : type}
         {...field}
-        className={`h-12 w-full rounded-md pr-10 pl-10 peer ${error ? "border-red-500 ring-0 focus-visible:ring-0" : ""}`}
+        className={`h-12 w-full rounded-md dark:border-gray-700 pr-10 pl-10 peer ${error ? "dark:border-red-500 border-red-500 ring-0 focus-visible:ring-0" : ""}`}
       />
 
       {type === "password" && (

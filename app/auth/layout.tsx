@@ -18,14 +18,14 @@ export default function AuthLayout({
         {children}
       </div>
       <div className="hidden md:flex flex-col justify-center items-center bg-slate-200 dark:bg-slate-900">
-      <ThemeSwitcher/>
         <Image
-          src="/images/backgrounds/lock.webp"
-          priority={false}
-          width={400}
-          height={478}
+          src="/images/backgrounds/login.svg"
+          width={500}
+          height={578}
           alt="login page vector"
         />
+
+        <ThemeSwitcher />
       </div>
     </div>
   );
