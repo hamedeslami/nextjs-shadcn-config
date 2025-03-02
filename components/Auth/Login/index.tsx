@@ -14,7 +14,7 @@ import InputIcons from "@/components/ui/wrappers/inputIcons";
 import Link from "next/link";
 import { Lock, User } from "lucide-react";
 import { LoginFormSchema } from "./loginFormSchema";
-import LoginMessage from "./message";
+import LOGIN_MESSAGES from "./message";
 import { Button } from "@/components/ui/button";
 
 export default function LoginForm() {
@@ -33,11 +33,11 @@ export default function LoginForm() {
   return (
     <>
       <div className="mb-4">
-        <h1 className="font-bold text-xl">{LoginMessage["title"]}</h1>
+        <h1 className="font-bold text-xl">{LOGIN_MESSAGES["title"]}</h1>
         <p className="mt-3 text-slate-500 text-sm">
-          {LoginMessage["notExistAccount"]}
+          {LOGIN_MESSAGES["notExistAccount"]}
           <Link href="/auth/signup" className="text-slate-800 mr-2">
-            {LoginMessage["signup"]}
+            {LOGIN_MESSAGES["signup"]}
           </Link>
         </p>
       </div>
@@ -51,7 +51,7 @@ export default function LoginForm() {
                 <FormControl>
                   <InputIcons
                     type="text"
-                    placeholder={LoginMessage["username"]}
+                    placeholder={LOGIN_MESSAGES["username"]}
                     field={field}
                     error={form.formState.errors.username}
                     icon={User}
@@ -70,7 +70,7 @@ export default function LoginForm() {
                 <FormControl>
                   <InputIcons
                     type="password"
-                    placeholder={LoginMessage["password"]}
+                    placeholder={LOGIN_MESSAGES["password"]}
                     field={field}
                     error={form.formState.errors.password}
                     icon={Lock}
@@ -86,10 +86,10 @@ export default function LoginForm() {
               href="/auth/forgot-password"
               className="mt-[0.1rem] text-xs text-slate-500"
             >
-              {LoginMessage["forgotPassword"]}
+              {LOGIN_MESSAGES["forgotPassword"]}
             </Link>
 
-            <Button type="submit">{LoginMessage["submit"]}</Button>
+            <Button type="submit">{LOGIN_MESSAGES["submit"]}</Button>
           </div>
         </form>
       </Form>

@@ -13,11 +13,11 @@ import {
   InputOTPGroup,
   InputOTPSlot
 } from "@/components/ui/input-otp";
-import { OtpFormSchema } from "./otpFormSchema";
+import { OtpSchema } from "./otpSchema";
 import { Button } from "@/components/ui/button";
 import { toast } from "sonner";
 import { useState } from "react";
-import CountdownTimer from "./counter";
+import Countder from "./counter";
 import {
   Tooltip,
   TooltipContent,
@@ -29,14 +29,14 @@ import OTP_MESSAGES from "./message";
 
 export default function FormOTP() {
   const [reset, setReset] = useState(false);
-  const form = useForm<z.infer<typeof OtpFormSchema>>({
-    resolver: zodResolver(OtpFormSchema),
+  const form = useForm<z.infer<typeof OtpSchema>>({
+    resolver: zodResolver(OtpSchema),
     defaultValues: {
       pin: ""
     }
   });
 
-  const onSubmit = (data: z.infer<typeof OtpFormSchema>) => {
+  const onSubmit = (data: z.infer<typeof OtpSchema>) => {
     console.log("otp code", data);
     toast.error("کد یکبار مصرف ارسال شده اشتباه می باشد.");
   };
@@ -112,7 +112,7 @@ export default function FormOTP() {
             ) : (
               <div className="flex flex-row gap-2 justify-around text-sm">
                 {OTP_MESSAGES["timer"]}
-                <CountdownTimer initialSeconds={180} setReset={setReset} />
+                <Countder initialSeconds={180} setReset={setReset} />
               </div>
             )}
           </div>

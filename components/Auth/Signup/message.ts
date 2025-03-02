@@ -1,4 +1,4 @@
-const SignupMessage: { [key: string]: string } = Object.freeze({
+const SIGNUP_MESSAGES: { [key: string]: string } = Object.freeze({
     title: "یک حساب کاربری جدید بسازید!",
     existAccount: "از قبل حساب کاربری دارید؟",
     login: "وارد شوید.",
@@ -27,4 +27,4 @@ const SignupMessage: { [key: string]: string } = Object.freeze({
     submit: "ثبت نام"
 });
 
-export default SignupMessage;
+export default SIGNUP_MESSAGES;

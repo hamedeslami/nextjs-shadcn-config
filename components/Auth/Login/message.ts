@@ -1,4 +1,4 @@
-const LoginMessage: { [key: string]: string } = Object.freeze({
+const LOGIN_MESSAGES: { [key: string]: string } = Object.freeze({
     title: "وارد حساب کاربری خود شوید.",
     notExistAccount: "حساب کاربری ندارید؟",
     signup: "هم اکنون عضو شوید!",
@@ -12,4 +12,4 @@ const LoginMessage: { [key: string]: string } = Object.freeze({
     passwordMax: "گذرواژه نباید بیشتر از ۲۰ کاراکتر باشد.",
 });
 
-export default LoginMessage;
+export default LOGIN_MESSAGES;

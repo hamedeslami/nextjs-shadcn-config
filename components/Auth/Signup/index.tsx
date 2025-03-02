@@ -13,14 +13,14 @@ import {
 } from "@/components/ui/form";
 import InputIcons from "@/components/ui/wrappers/inputIcons";
 import { Lock, User, AtSign, Phone } from "lucide-react";
-import { SignupFormSchema } from "./SignupFormSchema";
-import SignupMessage from "./message";
+import { SignupSchema } from "./SignupSchema";
+import SIGNUP_MESSAGES from "./message";
 import Link from "next/link";
 
 export default function SignupForm() {
 
-  const form = useForm<z.infer<typeof SignupFormSchema>>({
-    resolver: zodResolver(SignupFormSchema),
+  const form = useForm<z.infer<typeof SignupSchema>>({
+    resolver: zodResolver(SignupSchema),
     defaultValues: {
       firstname: "",
       lastname: "",
@@ -31,18 +31,18 @@ export default function SignupForm() {
     }
   });
 
-  function onSubmit(data: z.infer<typeof SignupFormSchema>) {
+  function onSubmit(data: z.infer<typeof SignupSchema>) {
     console.log(data);
   }
 
   return (
     <>
       <div className="mb-4">
-        <h1 className="font-bold text-xl">{SignupMessage["title"]}</h1>
+        <h1 className="font-bold text-xl">{SIGNUP_MESSAGES["title"]}</h1>
         <p className="mt-3 text-slate-500 text-sm">
-          {SignupMessage["existAccount"]}
+          {SIGNUP_MESSAGES["existAccount"]}
           <Link href="/auth/login" className="text-slate-800 mr-2">
-            {SignupMessage["login"]}
+            {SIGNUP_MESSAGES["login"]}
           </Link>
         </p>
       </div>
@@ -58,7 +58,7 @@ export default function SignupForm() {
 
                     <InputIcons
                       type="text"
-                      placeholder={SignupMessage["firstname"]}
+                      placeholder={SIGNUP_MESSAGES["firstname"]}
                       field={field}
                       error={form.formState.errors.firstname}
                       icon={User}
@@ -79,7 +79,7 @@ export default function SignupForm() {
 
                     <InputIcons
                       type="text"
-                      placeholder={SignupMessage["lastname"]}
+                      placeholder={SIGNUP_MESSAGES["lastname"]}
                       field={field}
                       error={form.formState.errors.lastname}
                       icon={User}
@@ -101,7 +101,7 @@ export default function SignupForm() {
 
                     <InputIcons
                       type="text"
-                      placeholder={SignupMessage["email"]}
+                      placeholder={SIGNUP_MESSAGES["email"]}
                       field={field}
                       error={form.formState.errors.email}
                       icon={AtSign}
@@ -124,7 +124,7 @@ export default function SignupForm() {
 
                     <InputIcons
                       type="text"
-                      placeholder={SignupMessage["mobile"]}
+                      placeholder={SIGNUP_MESSAGES["mobile"]}
                       field={field}
                       error={form.formState.errors.mobile}
                       icon={Phone}
@@ -147,7 +147,7 @@ export default function SignupForm() {
 
                     <InputIcons
                       type="password"
-                      placeholder={SignupMessage["password"]}
+                      placeholder={SIGNUP_MESSAGES["password"]}
                       field={field}
                       error={form.formState.errors.password}
                       icon={Lock}
@@ -168,7 +168,7 @@ export default function SignupForm() {
 
                     <InputIcons
                       type="password"
-                      placeholder={SignupMessage["rePassword"]}
+                      placeholder={SIGNUP_MESSAGES["rePassword"]}
                       field={field}
                       error={form.formState.errors.rePassword}
                       icon={Lock}
@@ -183,7 +183,7 @@ export default function SignupForm() {
 
           <div className="flex flex-col gap-4">
             <Button type="submit">
-              {SignupMessage["submit"]}
+              {SIGNUP_MESSAGES["submit"]}
             </Button>
           </div>
         </form>

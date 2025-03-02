@@ -5,7 +5,7 @@ interface CountdownTimerProps {
   setReset: (reset: boolean) => void;
 }
 
-const CountdownTimer: React.FC<CountdownTimerProps> = ({ initialSeconds, setReset }) => {
+const Countder : React.FC<CountdownTimerProps> = ({ initialSeconds, setReset }) => {
   const [seconds, setSeconds] = useState<number>(initialSeconds);
 
   useEffect(() => {
@@ -32,4 +32,4 @@ const CountdownTimer: React.FC<CountdownTimerProps> = ({ initialSeconds, setRese
   return <p>{formatTime(seconds)}</p>;
 };
 
-export default CountdownTimer;
+export default Countder;

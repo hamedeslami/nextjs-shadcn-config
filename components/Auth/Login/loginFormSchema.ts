@@ -1,14 +1,14 @@
 import { z } from "zod";
-import LoginMessage from "./message";
+import LOGIN_MESSAGES from "./message";
 
 export const LoginFormSchema = z.object({
   username: z
     .string()
-    .min(1, { message: LoginMessage["usernameMin"] })
-    .max(20, { message: LoginMessage["usernameMax"] }),
+    .min(1, { message: LOGIN_MESSAGES["usernameMin"] })
+    .max(20, { message: LOGIN_MESSAGES["usernameMax"] }),
 
   password: z
     .string()
-    .min(1, { message: LoginMessage["passwordMin"] })
-    .max(20, { message: LoginMessage["passwordMax"] })
+    .min(1, { message: LOGIN_MESSAGES["passwordMin"] })
+    .max(20, { message: LOGIN_MESSAGES["passwordMax"] })
 });

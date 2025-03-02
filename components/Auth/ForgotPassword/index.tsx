@@ -14,20 +14,20 @@ import {
 import InputIcons from "@/components/ui/wrappers/inputIcons";
 import Link from "next/link";
 import { Phone } from "lucide-react";
-import { ForgotPasswordFormSchema } from "./forgotPasswordFormSchema";
-import ForgotPasswordMessage from "./message";
+import { ForgotPasswordSchema } from "./forgotPasswordSchema";
+import FORGOT_PASSWORD_MESSAGES from "./message";
 import { toast } from "sonner";
 
 
 export default function ForgotPasswordForm() {
-  const form = useForm<z.infer<typeof ForgotPasswordFormSchema>>({
-    resolver: zodResolver(ForgotPasswordFormSchema),
+  const form = useForm<z.infer<typeof ForgotPasswordSchema>>({
+    resolver: zodResolver(ForgotPasswordSchema),
     defaultValues: {
       mobile: ""
     }
   });
 
-  function onSubmit(data: z.infer<typeof ForgotPasswordFormSchema>) {
+  function onSubmit(data: z.infer<typeof ForgotPasswordSchema>) {
     toast.success(`کد تایید به شماره موبایل ${data.mobile} ارسال شد.`);
     console.log(data);
   }
@@ -35,9 +35,9 @@ export default function ForgotPasswordForm() {
   return (
     <>
       <div className="mb-4">
-        <h1 className="font-bold text-xl">{ForgotPasswordMessage["title"]}</h1>
+        <h1 className="font-bold text-xl">{FORGOT_PASSWORD_MESSAGES["title"]}</h1>
         <p className="mt-3 text-slate-500 text-sm">
-          {ForgotPasswordMessage["description"]}
+          {FORGOT_PASSWORD_MESSAGES["description"]}
         </p>
       </div>
       <div className="flex flex-col gap-4">
@@ -49,7 +49,7 @@ export default function ForgotPasswordForm() {
               render={({ field }) => (
                 <FormItem>
                   <FormControl>
-                    <InputIcons type="text" placeholder={ForgotPasswordMessage["mobile"]} field={field} error={form.formState.errors.mobile} icon={Phone}/>
+                    <InputIcons type="text" placeholder={FORGOT_PASSWORD_MESSAGES["mobile"]} field={field} error={form.formState.errors.mobile} icon={Phone}/>
                   </FormControl>
                   <FormMessage />
                 </FormItem>
@@ -58,12 +58,12 @@ export default function ForgotPasswordForm() {
 
             <div className="mt-3">
               <Button type="submit">
-                {ForgotPasswordMessage["submit"]}
+                {FORGOT_PASSWORD_MESSAGES["submit"]}
               </Button>
             </div>
             <div className="flex justify-center mt-3">
               <Link href="/auth/login" className="text-slate-600 text-xs mt-3">
-                {ForgotPasswordMessage["backHome"]}
+                {FORGOT_PASSWORD_MESSAGES["backHome"]}
               </Link>
             </div>
           </form>

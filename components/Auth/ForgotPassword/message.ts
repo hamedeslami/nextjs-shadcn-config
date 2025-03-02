@@ -1,4 +1,4 @@
-const ForgotPasswordMessage: { [key: string]: string } = Object.freeze({
+const FORGOT_PASSWORD_MESSAGES: { [key: string]: string } = Object.freeze({
     title: "رمز عبور خود را فراموش کرده اید؟",
     description: "لطفاً شماره تلفن همراه مرتبط با حساب کاربری خود را وارد کنید و ما برای بازنشانی گذرواژه برای شما پیامکی ارسال می کنیم.",
     mobile: "تلفن همراه",
@@ -9,4 +9,4 @@ const ForgotPasswordMessage: { [key: string]: string } = Object.freeze({
     backHome: "بازگشت به صفحه ورود"
 });
 
-export default ForgotPasswordMessage;
+export default FORGOT_PASSWORD_MESSAGES;
