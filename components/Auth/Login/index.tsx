@@ -16,6 +16,7 @@ import { Lock, User } from "lucide-react";
 import { LoginFormSchema } from "./loginFormSchema";
 import LOGIN_MESSAGES from "./message";
 import { Button } from "@/components/ui/button";
+import Cookies from "js-cookie";
 
 export default function LoginForm() {
   const form = useForm<z.infer<typeof LoginFormSchema>>({
@@ -26,9 +27,15 @@ export default function LoginForm() {
     }
   });
 
-  function onSubmit(data: z.infer<typeof LoginFormSchema>) {
+  const onSubmit = async (data: z.infer<typeof LoginFormSchema>) => {
+    const token = "your_token_here";
+    const expiresMs = 2 * 60 * 1000; // 2 minutes in milliseconds
+
+    // Convert milliseconds to days for js-cookie
+    const expiresDays = expiresMs / (1000 * 60 * 60 * 24);
+    Cookies.set("AUTH_USER_TOKEN", token, { expires: expiresDays, path: "/" });
     console.log(data);
-  }
+  };
 
   return (
     <>

@@ -48,7 +48,7 @@ export default function RootLayout({
             disableTransitionOnChange
           >
             <TopProgressBar />
-            <main className={IRANSansX.className}>{children}</main>
+            <main className={`antialiased ${IRANSansX.className}`}>{children}</main>
             <Toaster
               className="!font-IRANSansX"
               position="top-left"
