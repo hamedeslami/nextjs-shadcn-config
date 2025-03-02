@@ -1,3 +1,4 @@
+import { useState } from "react";
 import { z } from "zod";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { useForm } from "react-hook-form";
@@ -13,10 +14,9 @@ import {
   InputOTPGroup,
   InputOTPSlot
 } from "@/components/ui/input-otp";
-import { OtpSchema } from "./otpSchema";
+import { verificationCodeSchema } from "./verificationCodeSchema";
 import { Button } from "@/components/ui/button";
 import { toast } from "sonner";
-import { useState } from "react";
 import Countder from "./counter";
 import {
   Tooltip,
@@ -25,18 +25,18 @@ import {
   TooltipTrigger
 } from "@/components/ui/tooltip";
 import { PenLine } from "lucide-react";
-import OTP_MESSAGES from "./message";
+import VERIFICATION_CODE_MESSAGES from "./message";
 
-export default function FormOTP() {
+export default function VerificationCodeForm() {
   const [reset, setReset] = useState(false);
-  const form = useForm<z.infer<typeof OtpSchema>>({
-    resolver: zodResolver(OtpSchema),
+  const form = useForm<z.infer<typeof verificationCodeSchema>>({
+    resolver: zodResolver(verificationCodeSchema),
     defaultValues: {
       pin: ""
     }
   });
 
-  const onSubmit = (data: z.infer<typeof OtpSchema>) => {
+  const onSubmit = (data: z.infer<typeof verificationCodeSchema>) => {
     console.log("otp code", data);
     toast.error("کد یکبار مصرف ارسال شده اشتباه می باشد.");
   };
@@ -49,9 +49,9 @@ export default function FormOTP() {
   return (
     <>
       <div className="mb-4">
-        <h1 className="font-bold text-xl">{OTP_MESSAGES["title"]}</h1>
+        <h1 className="font-bold text-xl">{VERIFICATION_CODE_MESSAGES["title"]}</h1>
         <p className="mt-3 text-slate-500 text-sm">
-          {OTP_MESSAGES["description"]}
+          {VERIFICATION_CODE_MESSAGES["description"]}
         </p>
         <div className="flex flex-row gap-2 mt-4">
           <TooltipProvider>
@@ -62,7 +62,7 @@ export default function FormOTP() {
                   className="text-blue-500 dark:text-blue-200"
                 />
               </TooltipTrigger>
-              <TooltipContent>{OTP_MESSAGES["editPhoneNumber"]}</TooltipContent>
+              <TooltipContent>{VERIFICATION_CODE_MESSAGES["editPhoneNumber"]}</TooltipContent>
             </Tooltip>
           </TooltipProvider>
 
@@ -107,17 +107,17 @@ export default function FormOTP() {
                 onClick={sendHandler}
                 className="cursor-pointer text-sm text-blue-500 dark:text-blue-200"
               >
-                {OTP_MESSAGES["sendAgain"]}
+                {VERIFICATION_CODE_MESSAGES["sendAgain"]}
               </div>
             ) : (
               <div className="flex flex-row gap-2 justify-around text-sm">
-                {OTP_MESSAGES["timer"]}
+                {VERIFICATION_CODE_MESSAGES["timer"]}
                 <Countder initialSeconds={180} setReset={setReset} />
               </div>
             )}
           </div>
 
-          <Button type="submit">{OTP_MESSAGES["submit"]}</Button>
+          <Button type="submit">{VERIFICATION_CODE_MESSAGES["submit"]}</Button>
         </form>
       </Form>
     </>

@@ -1,4 +1,4 @@
-const OTP_MESSAGES : { [key: string]: string } = Object.freeze({
+const VERIFICATION_CODE_MESSAGES : { [key: string]: string } = Object.freeze({
     title: "کد اعتبار سنجی",
     description: "لطفا کد اعتبار سنجی ارسال شده به شماره زیر را وارد نمایید.",
     sendAgain: "ارسال مجدد کد اعتبار سنجی",
@@ -9,4 +9,4 @@ const OTP_MESSAGES : { [key: string]: string } = Object.freeze({
     editPhoneNumber: "ویرایش شماره تلفن همراه",
 });
 
-export default OTP_MESSAGES;
+export default VERIFICATION_CODE_MESSAGES;

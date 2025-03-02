@@ -13,7 +13,7 @@ import {
 } from "@/components/ui/form";
 import InputIcons from "@/components/ui/wrappers/inputIcons";
 import { Lock, User, AtSign, Phone } from "lucide-react";
-import { SignupSchema } from "./SignupSchema";
+import { SignupSchema } from "./signupSchema";
 import SIGNUP_MESSAGES from "./message";
 import Link from "next/link";
 
