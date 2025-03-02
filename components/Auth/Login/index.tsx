@@ -17,9 +17,7 @@ import { LoginFormSchema } from "./loginFormSchema";
 import LoginMessage from "./message";
 import { Button } from "@/components/ui/button";
 
-
 export default function LoginForm() {
-
   const form = useForm<z.infer<typeof LoginFormSchema>>({
     resolver: zodResolver(LoginFormSchema),
     defaultValues: {
